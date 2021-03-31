@@ -89,6 +89,13 @@
                               <extraarg>-client</extraarg>
                            </extraargs>
                         </wsdlOption>
+                        <wsdlOption>
+                           <wsdl>${basedir}/src/test/resources/customer.wsdl</wsdl>
+                           <extraargs>
+                              <extraarg>-impl</extraarg>
+                              <extraarg>-client</extraarg>
+                           </extraargs>
+                        </wsdlOption>
                      </wsdlOptions>
                   </configuration>
                </execution>
