@@ -12,15 +12,24 @@
                </xs:sequence>
             </xs:complexType>
          </xs:element>
-         <xs:element name="ossa250with3paramsResponse">
-            <xs:complexType>
-               <xs:sequence>
-                  <xs:element name="rep-param1" type="xs:string" minOccurs="0" maxOccurs="1" />
-                  <xs:element name="rep-param2" type="xs:int" minOccurs="0" maxOccurs="1" />
-                  <xs:element name="rep-param3" type="xs:string" minOccurs="0" maxOccurs="1" />
-               </xs:sequence>
-            </xs:complexType>
-         </xs:element>
+
+		<xs:element name="ossa250with3paramsResponse">
+			<xs:complexType>
+				<xs:sequence>
+					<xs:element name="ossa250with3paramsResponse"
+						type="ossa:ossa250with3paramsResponseType" minOccurs="0"
+						maxOccurs="1"></xs:element>
+				</xs:sequence>
+			</xs:complexType>
+		</xs:element>
+
+		<xs:complexType name="ossa250with3paramsResponseType">
+		   <xs:sequence>
+			  <xs:element name="rep-param1" type="xs:string" minOccurs="0" maxOccurs="1" />
+			  <xs:element name="rep-param2" type="xs:int" minOccurs="0" maxOccurs="1" />
+			  <xs:element name="rep-param3" type="xs:string" minOccurs="0" maxOccurs="1" />
+		   </xs:sequence>
+		</xs:complexType>
          
          <xs:element name="ossa250with2params">
             <xs:complexType>
@@ -29,6 +38,7 @@
                </xs:sequence>
             </xs:complexType>
          </xs:element>
+
          <xs:element name="ossa250with2paramsResponse">
             <xs:complexType>
                <xs:sequence>

@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.linagora.ossa._250.OSSA;
+import com.linagora.ossa._250.Ossa250With3ParamsResponseType;
 
 public class OSSA250ServiceMock extends ExternalResource implements OSSA {
     private static Logger LOGGER = LoggerFactory.getLogger(OSSA250ServiceMock.class);
@@ -19,7 +20,7 @@ public class OSSA250ServiceMock extends ExternalResource implements OSSA {
 
     private int param2;
 
-    private String param3;
+    private Ossa250With3ParamsResponseType ossa250With3ParamsResponseType;
 
     public OSSA250ServiceMock(final String mockServiceUrl) {
         this.mockServiceURL = mockServiceUrl;
@@ -38,16 +39,9 @@ public class OSSA250ServiceMock extends ExternalResource implements OSSA {
     }
 
     @Override
-    public void ossa250With3Params(final String param, final Holder<String> repParam1, final Holder<Integer> repParam2,
-            final Holder<String> repParam3) {
+    public Ossa250With3ParamsResponseType ossa250With3Params(final String param) {
 
-        repParam1.value = param1;
-        repParam2.value = param2;
-        repParam3.value = param3;
-
-        LOGGER.error(
-                "\n\n\n ossa250 with repParam1 [{}] | repParam2 [{}] , repParam3 [{}] \n\n\n----", repParam1.value,
-                repParam2.value, repParam3.value);
+        return this.ossa250With3ParamsResponseType;
     }
 
     @Override
@@ -69,8 +63,9 @@ public class OSSA250ServiceMock extends ExternalResource implements OSSA {
         this.param2 = param2;
     }
 
-    public void setParam3(final String param3) {
-        this.param3 = param3;
+    public void setOssa250With3ParamsResponseType(Ossa250With3ParamsResponseType ossa250With3ParamsResponseType) {
+        this.ossa250With3ParamsResponseType = ossa250With3ParamsResponseType;
     }
+
 }
 

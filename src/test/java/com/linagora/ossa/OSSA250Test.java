@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
+import com.linagora.ossa._250.Ossa250With3ParamsResponseType;
 import com.linagora.ossa.mock.OSSA250ServiceMock;
 
 public class OSSA250Test {
@@ -34,7 +35,11 @@ public class OSSA250Test {
     public void initializeMock() {
         ossa250ServiceMock.setParam1(PARAM1);
         ossa250ServiceMock.setParam2(PARAM2);
-        ossa250ServiceMock.setParam3(PARAM3);
+        Ossa250With3ParamsResponseType response = new Ossa250With3ParamsResponseType();
+        response.setRepParam1(PARAM1);
+        response.setRepParam2(PARAM2);
+        response.setRepParam3(PARAM3);
+        ossa250ServiceMock.setOssa250With3ParamsResponseType(response);
     }
 
     @Test
@@ -72,9 +77,10 @@ public class OSSA250Test {
         final Object[] response = cxfClient.invoke("ossa250with3params",
                 new Object[] { PARAM0 });
 
-        assertEquals(PARAM1, response[0]);
-        assertEquals(PARAM2, response[1]);
-        assertEquals(PARAM3, response[2]);
+        Ossa250With3ParamsResponseType responseCast = (Ossa250With3ParamsResponseType) response[0];
+        assertEquals(PARAM1, responseCast.getRepParam1());
+        assertEquals(PARAM2, responseCast.getRepParam2().intValue());
+        assertEquals(PARAM3, responseCast.getRepParam3());
     }
 
 }
