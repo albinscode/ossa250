@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<w:definitions xmlns:ossa="http://ossa.linagora.com/250"
+   xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:w="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" name="OSSA250Service"
+   targetNamespace="http://ossa.linagora.com/250">
+   <w:types>
+      <xs:schema targetNamespace="http://ossa.linagora.com/250" version="1.0">
+         <xs:element name="ossa250with3params">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="param" type="xs:string" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="ossa250with3paramsResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="rep-param1" type="xs:string" minOccurs="0" maxOccurs="1" />
+                  <xs:element name="rep-param2" type="xs:int" minOccurs="0" maxOccurs="1" />
+                  <xs:element name="rep-param3" type="xs:string" minOccurs="0" maxOccurs="1" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         
+         <xs:element name="ossa250with2params">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="param" type="xs:string" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+         <xs:element name="ossa250with2paramsResponse">
+            <xs:complexType>
+               <xs:sequence>
+                  <xs:element name="rep-param1" type="xs:string" minOccurs="0" maxOccurs="1" />
+                  <xs:element name="rep-param2" type="xs:int" minOccurs="0" maxOccurs="1" />
+               </xs:sequence>
+            </xs:complexType>
+         </xs:element>
+      </xs:schema>
+   </w:types>
+   <w:message name="ossa250with3paramsRequest">
+      <w:part element="ossa:ossa250with3params" name="parameters" />
+   </w:message>
+   <w:message name="ossa250with3paramsResponse">
+      <w:part element="ossa:ossa250with3paramsResponse" name="parameters" />
+   </w:message>
+   <w:message name="ossa250with2paramsRequest">
+      <w:part element="ossa:ossa250with2params" name="parameters" />
+   </w:message>
+   <w:message name="ossa250with2paramsResponse">
+      <w:part element="ossa:ossa250with2paramsResponse" name="parameters" />
+   </w:message>
+   <w:portType name="OSSA">
+      <w:operation name="ossa250with3params">
+         <w:input message="ossa:ossa250with3paramsRequest" />
+         <w:output message="ossa:ossa250with3paramsResponse" />
+      </w:operation>
+      <w:operation name="ossa250with2params">
+         <w:input message="ossa:ossa250with2paramsRequest" />
+         <w:output message="ossa:ossa250with2paramsResponse" />
+      </w:operation>
+   </w:portType>
+   <w:binding name="OssaSoapPortBinding" type="ossa:OSSA">
+      <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <w:operation name="ossa250with3params">
+         <soap:operation soapAction="http://ossa.linagora.com/250/ossa250with3params" />
+         <w:input>
+            <soap:body use="literal" />
+         </w:input>
+         <w:output>
+            <soap:body use="literal" />
+         </w:output>
+      </w:operation>
+      <w:operation name="ossa250with2params">
+         <soap:operation soapAction="http://ossa.linagora.com/250/ossa250with2params" />
+         <w:input>
+            <soap:body use="literal" />
+         </w:input>
+         <w:output>
+            <soap:body use="literal" />
+         </w:output>
+      </w:operation>
+   </w:binding>
+   <w:service name="Ossa250Service">
+      <w:port binding="ossa:OssaSoapPortBinding" name="autogenerate">
+         <soap:address location="http://localhost:12345/OSSA-250-Service" />
+      </w:port>
+   </w:service>
+</w:definitions>
