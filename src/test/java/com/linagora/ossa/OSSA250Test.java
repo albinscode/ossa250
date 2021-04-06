@@ -50,7 +50,7 @@ public class OSSA250Test {
 
         // Invoque Mock
         cxfClient.getRequestContext().put(Message.ENDPOINT_ADDRESS, MOCK_SERVICE_URL);
-        final Object[] response = cxfClient.invoke("ossa250with2params", new Object[] { PARAM0 });
+        final Object[] response = cxfClient.invoke("ossa250with2params", new Object[] { PARAM0, null, null });
         
         assertEquals(PARAM1, response[0]);
         assertEquals(PARAM2, response[1]);
@@ -70,7 +70,7 @@ public class OSSA250Test {
         // Invoque Mock
         cxfClient.getRequestContext().put(Message.ENDPOINT_ADDRESS, MOCK_SERVICE_URL);
         final Object[] response = cxfClient.invoke("ossa250with3params",
-                new Object[] { PARAM0 });
+                new Object[] { PARAM0, null, null, null });
 
         assertEquals(PARAM1, response[0]);
         assertEquals(PARAM2, response[1]);
